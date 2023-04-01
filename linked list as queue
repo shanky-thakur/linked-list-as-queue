@@ -1,0 +1,84 @@
+import java.util.Arrays;
+public class queueImplementation
+{
+    static class queue
+    {
+        static class linkedlist
+        {
+            static class Node
+            {
+                int data;
+                Node next;
+                Node previous;
+                public Node(int data)
+                {
+                    this.data = data;
+                }
+            }
+            Node head = null;
+            Node tail = null;
+            public void add(int data)
+            {
+                Node newnode = new Node(data);
+                if(head==null)
+                {
+                    head = tail = newnode;
+                }
+                else
+                {
+                    tail.next = newnode;
+                    newnode.previous = tail;
+                    tail = newnode;
+                }
+            }
+            public void peek()
+            {
+                if(head==null)
+                {
+                    System.out.println("list is empty");
+                }
+                else
+                {
+                    System.out.println(tail.data);
+                }
+            }
+            public void removetop()
+            {
+                if(head==null)
+                {
+                    System.out.println("list is empty");
+                }
+                else
+                {
+                    tail = tail.previous;
+                }
+            }
+        }
+        linkedlist ll = new linkedlist();
+        public void add(int data)
+        {
+            ll.add(data);
+        }
+        public void peek()
+        {
+            ll.peek();
+        }
+        public void removetop()
+        {
+            ll.removetop();
+        }
+    }
+    public static void main(String[] args)
+    {
+        queue q = new queue();
+        q.peek();
+        q.add(67);
+        q.peek();
+        q.add(45);
+        q.add(34);
+        q.add(12);
+        q.peek();
+        q.removetop();
+        q.peek();
+    }
+}
